@@ -5,3 +5,9 @@ dependencies:
   - tensorflow
   - Flask
   - tensorboard
+  - Pillow
+  - pip
+  - nomkl
+  - pandas
+  - pip:
+      - bing-image-downloader

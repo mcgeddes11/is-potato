@@ -26,11 +26,11 @@ if K.image_data_format() == 'channels_first':
 else:
     input_shape = (img_width, img_height, 3)
 
-train_data_dir = 'C:\\Project\\hockey_tracker\\training_classifier\\train'
-validation_data_dir = 'C:\\data\\hockey_tracker\\training_classifier\\validation'
+train_data_dir = 'C:\\Projects\\data\\is-potato\\train'
+validation_data_dir = 'C:\\Projects\\data\\is-potato\\validation'
 nb_train_samples = sum([len(files) for r, d, files in os.walk(train_data_dir)])
 nb_validation_samples = sum([len(files) for r, d, files in os.walk(validation_data_dir)])
-epochs = 20
+epochs = 30
 batch_size = 16
 
 
@@ -61,6 +61,14 @@ def model_from_scratch(input_shape):
                   metrics=['accuracy'])
     return model
 
+# Format input
+if K.image_data_format() == 'channels_first':
+    input_shape = (3, img_width, img_height)
+else:
+    input_shape = (img_width, img_height, 3)
+
+model = model_from_scratch(input_shape)
+
 # this is the augmentation configuration we will use for training
 train_datagen = ImageDataGenerator(
     rescale=1. / 255,
@@ -84,11 +92,11 @@ validation_generator = test_datagen.flow_from_directory(
     batch_size=batch_size,
     class_mode='binary')
 
-model.fit_generator(
+model.fit(
     train_generator,
     steps_per_epoch=nb_train_samples // batch_size,
     epochs=epochs,
     validation_data=validation_generator,
     validation_steps=nb_validation_samples // batch_size)
 
-model.save("training_discriminator_model.h5")
+model.save("classifier_model.h5")

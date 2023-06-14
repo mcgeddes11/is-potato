@@ -1,0 +1,11 @@
+image_filename,class,probability
+not_potato\not_potato_01.jpg,0,1.6905456e-07
+not_potato\not_potato_02.jpg,0,0.002316188
+not_potato\not_potato_03.jpg,0,0.0053653847
+not_potato\not_potato_04.jpg,0,4.0635477e-05
+not_potato\not_potato_05.jpg,1,0.86986816
+potato\potato_01.jpg,0,0.42723525
+potato\potato_02.jpg,0,0.36398336
+potato\potato_03.jpg,1,0.9856026
+potato\potato_04.jpg,1,0.9883938
+potato\potato_05.jpg,0,0.184399
