@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>IsPotato?</title>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+ <header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">IsPotato?</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="potatoDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Is Potato?
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="potatoDropdown">
+              <li><a class="dropdown-item" href="#">Item 1</a></li>
+              <li><a class="dropdown-item" href="#">Item 2</a></li>
+              <li><a class="dropdown-item" href="#">Item 3</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="chatSpudDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              ChatSPUD
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="chatSpudDropdown">
+              <li><a class="dropdown-item" href="#">Submenu Item 1</a></li>
+              <li><a class="dropdown-item" href="#">Submenu Item 2</a></li>
+              <li><a class="dropdown-item" href="#">Submenu Item 3</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>

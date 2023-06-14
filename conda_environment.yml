@@ -1,0 +1,7 @@
+name: ispotato
+dependencies:
+  - python=3.10
+  - keras
+  - tensorflow
+  - Flask
+  - tensorboard
