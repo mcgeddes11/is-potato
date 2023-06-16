@@ -5,7 +5,6 @@ from io import BytesIO
 from uuid import uuid4
 from models import IsPotatoModel
 import os
-import json
 
 model = IsPotatoModel(os.path.join(os.environ["MODEL_PATH"], "classifier_model.h5"),
                       img_width=150,
@@ -28,14 +27,15 @@ def process_input():
         if 'imageFile' in request.files:
             # Image file uploaded
             image_file = request.files['imageFile']
-            if image_file.content_length > 0:
+            if image_file.filename != '':
+
                 print("Received a file")
                 # Process the image file
 
         if 'imageUrl' in request.form:
             # Image URL pasted
             image_url = request.form['imageUrl']
-            response = requests.get(image_url)
+            response = requests.get(image_url, headers={"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36"})
             if response.status_code != 200 or "image" not in response.headers["Content-Type"]:
                 print("bad file, not an image")
             else:
