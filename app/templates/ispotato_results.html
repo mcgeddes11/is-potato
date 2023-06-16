@@ -11,7 +11,7 @@
     <p>Confidence: {{ confidence }}</p>
 {% endif %}
     <div id="image-results-div">
-        <img src="{{ url_for('static', filename='potatoes/' + id + '.jpg') }}">
+        <img src="{{ url_for('static', filename='potatoes/' + image_id + '.jpg') }}">
     </div>
 </div>
 {% endblock %}

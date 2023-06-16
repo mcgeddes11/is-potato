@@ -11,15 +11,17 @@ model = IsPotatoModel(os.path.join(os.environ["MODEL_PATH"], "classifier_model.h
                       img_height=150)
 
 # TODO: externalize this as a database of some kind
+# TODO: configure to auto-delete the static/imgs files that are older than x days
 results_object = {}
 results_object["test"] = {"class": "is potato", "probability": 1.0}
 
 app = Flask(__name__)
-# TODO: configure to auto-delete the static/imgs files that are older than x days
+
 
 @app.route('/', methods=['GET'])
 def landing_page():
     return render_template('ispotato_main.html', page_title="IsPotato?")
+
 
 @app.route('/process', methods=["POST"])
 def process_input():
@@ -28,9 +30,12 @@ def process_input():
             # Image file uploaded
             image_file = request.files['imageFile']
             if image_file.filename != '':
-
-                print("Received a file")
-                # Process the image file
+                image = Image.open(image_file.stream)
+                results = model.predict(image)
+                image_id = str(uuid4())
+                results_object[image_id] = results
+                image.save(os.path.join(app.root_path, "static", "potatoes", "{}.jpg".format(image_id)))
+                return redirect(url_for("ispotato_results", image_id=image_id))
 
         if 'imageUrl' in request.form:
             # Image URL pasted
@@ -48,15 +53,15 @@ def process_input():
                 results_object[image_id] = results
                 image.save(os.path.join(app.root_path, "static", "potatoes", "{}.jpg".format(image_id)))
 
-                return redirect(url_for("ispotato_results", id=image_id))
+                return redirect(url_for("ispotato_results", image_id=image_id))
     else:
         render_template('ispotato_main.html', page_title="IsPotato?")
 
 
-@app.route('/results/<id>')
-def ispotato_results(id):
-    result = results_object[id]
-    return render_template('ispotato_results.html', id=id, ispotato=result["class"], confidence=result["probability"])
+@app.route('/results/<image_id>')
+def ispotato_results(image_id):
+    result = results_object[image_id]
+    return render_template('ispotato_results.html', image_id=image_id, ispotato=result["class"], confidence=result["probability"])
 
 if __name__ == '__main__':
     app.run()
