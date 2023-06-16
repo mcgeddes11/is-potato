@@ -63,5 +63,6 @@ def ispotato_results(image_id):
     result = results_object[image_id]
     return render_template('ispotato_results.html', image_id=image_id, ispotato=result["class"], confidence=result["probability"])
 
+
 if __name__ == '__main__':
     app.run()
