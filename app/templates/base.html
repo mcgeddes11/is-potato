@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>IsPotato?</title>
+  <title>IsPotato</title>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -22,9 +22,9 @@
               Is Potato?
             </a>
             <ul class="dropdown-menu" aria-labelledby="potatoDropdown">
-              <li><a class="dropdown-item" href="#">Item 1</a></li>
-              <li><a class="dropdown-item" href="#">Item 2</a></li>
-              <li><a class="dropdown-item" href="#">Item 3</a></li>
+              <li><a class="dropdown-item" href="#">Image Classifier</a></li>
+              <li><a class="dropdown-item" href="#">Model Details</a></li>
+              <li><a class="dropdown-item" href="#">Other Potat-Related Goodies</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
@@ -32,19 +32,26 @@
               ChatSPUD
             </a>
             <ul class="dropdown-menu" aria-labelledby="chatSpudDropdown">
-              <li><a class="dropdown-item" href="#">Submenu Item 1</a></li>
-              <li><a class="dropdown-item" href="#">Submenu Item 2</a></li>
-              <li><a class="dropdown-item" href="#">Submenu Item 3</a></li>
+              <li><a class="dropdown-item" href="#">ChatSPUD Interface</a></li>
+              <li><a class="dropdown-item" href="#">Model Info</a></li>
             </ul>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" id="about" role="button">
+              About
+            </a>
         </ul>
       </div>
     </div>
   </nav>
 </header>
 
+ <div class="container mt-5">
+  <h1>Welcome to IsPotato!</h1>
+
 {% block content %}
 {% endblock %}
 
+ </div>
 </body>
 </html>

@@ -2,11 +2,16 @@
 
 {% block content %}
 <div class="container mt-5">
-    <h1>Welcome to IsPotato?</h1>
-    <p>Discover if an image is a potato or not!</p>
-
+    <p>Your image...</p>
+    {% if ispotato == 'is potato' %}
+    <p>IS POTATO!</p>
+    <p>Confidence: {{ confidence }}</p>
+{% else %}
+    <p>is not potato...</p>
+    <p>Confidence: {{ confidence }}</p>
+{% endif %}
     <div id="image-results-div">
-        <img src=""
+        <img src="{{ url_for('static', filename='potatoes/test.jpg') }}">
     </div>
-
+</div>
 {% endblock %}

@@ -15,6 +15,10 @@ class IsPotatoModel:
         image_data = numpy.resize(image_data, (self.img_height, self.img_width, 3))
         image_data = numpy.expand_dims(image_data, axis=0)
         result = self.model.predict(image_data)
-        return result
+        # TODO: calibrate this
+        if result[0][0] > 0.1:
+            return {"class": "is potato", "probability": result[0][0]}
+        else:
+            return {"class": "is not potato", "probability": result[0][0]}
 
 
