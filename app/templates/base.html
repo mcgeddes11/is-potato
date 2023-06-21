@@ -7,8 +7,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
-<body style="background-image: url('{{ url_for('static', filename='imgs/potato_bg_image.jpg') }}');
-           background-size:100%;">
+<body style="background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url('{{ url_for('static', filename='imgs/potato_bg_image.jpg') }}');
+           background-size:100%">
  <header>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
@@ -24,23 +24,24 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="potatoDropdown">
               <li><a class="dropdown-item" href="/">Image Classifier</a></li>
-              <li><a class="dropdown-item" href="/modeldetails">Model Details</a></li>
-              <li><a class="dropdown-item" href="/spudstuff">Other Potato-Related Goodies</a></li>
+              <li><a class="dropdown-item" href="/modeldetails" target="_blank">Model/Project Details</a></li>
+              <li><a class="dropdown-item" href="https://github.com/mcgeddes11/is-potato" target="_blank">Code</a></li>
+<!--              <li><a class="dropdown-item" href="/spudstuff">Other Potato-Related Goodies</a></li>-->
             </ul>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="chatSpudDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              ChatSPUD
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="chatSpudDropdown">
-              <li><a class="dropdown-item" href="#">ChatSPUD Interface</a></li>
-              <li><a class="dropdown-item" href="#">Model Info</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" id="about" role="button">
-              About
-            </a>
+<!--          <li class="nav-item dropdown">-->
+<!--            <a class="nav-link dropdown-toggle" href="#" id="chatSpudDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--              ChatSPUD-->
+<!--            </a>-->
+<!--            <ul class="dropdown-menu" aria-labelledby="chatSpudDropdown">-->
+<!--              <li><a class="dropdown-item" href="#">ChatSPUD Interface</a></li>-->
+<!--              <li><a class="dropdown-item" href="#">Model Info</a></li>-->
+<!--            </ul>-->
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" href="#" id="about" role="button">-->
+<!--              About-->
+<!--            </a>-->
         </ul>
       </div>
     </div>

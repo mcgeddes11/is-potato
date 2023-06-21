@@ -36,20 +36,16 @@ def landing_page():
 
 @app.route('/process', methods=["POST"])
 def process_input():
-    logging.info("Hit process")
     if request.method == 'POST':
         if 'imageFile' in request.files:
             # Image file uploaded
             image_file = request.files['imageFile']
             if image_file.filename != '':
                 image = Image.open(image_file.stream)
-                logging.info("Opened file")
                 results = model.predict(image)
-                logging.info("Predicted ispotato")
                 image_id = str(uuid4())
                 results_object[image_id] = results
                 image.save(os.path.join(app.root_path, "static", "potatoes", "{}.jpg".format(image_id)))
-                logging.info("Saved to file")
                 return redirect(url_for("ispotato_results", image_id=image_id))
 
         if 'imageUrl' in request.form:
@@ -60,11 +56,9 @@ def process_input():
                 print("bad file, not an image")
             else:
                 image = Image.open(BytesIO(response.content))
-                logging.info("Opened file")
                 # process the image using our model
                 # TODO: include logic to output potato/not potato in model class
                 results = model.predict(image)
-                logging.info("Predicted ispotato")
                 # save to file?
                 image_id = str(uuid4())
                 results_object[image_id] = results

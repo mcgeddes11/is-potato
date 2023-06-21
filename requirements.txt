@@ -1,6 +1,9 @@
 Flask==2.2.3
+gunicorn==20.1.0
 keras==2.10.0
 pandas==1.4.3
 Pillow==9.4.0
+psycopg2-binary==2.9.6
+pydot==1.4.2
 tensorboard==2.10.1
 tensorflow==2.10.0
