@@ -7,13 +7,6 @@ from models.models import IsPotatoModel
 import os
 import logging
 import traceback
-import tensorflow as tf
-
-logging.basicConfig(level=logging.INFO,
-                    filename='app.log',
-                    filemode='a',
-                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                    datefmt='%Y-%m-%d %H:%M:%S')
 
 # todo: do this better so i can save img width/weight with the model
 model = IsPotatoModel(os.environ["MODEL_PATH"],
