@@ -16,8 +16,9 @@ from keras.layers import Conv2D, MaxPooling2D
 from keras.layers import Activation, Dropout, Flatten, Dense
 from keras import backend as K
 import os
-from datetime import datetime
-now = datetime.utcnow().strftime("%Y%m%d%H%M%S")
+import tensorflow as tf
+import datetime
+now = datetime.datetime.utcnow().strftime("%Y%m%d%H%M%S")
 
 img_width = 300
 img_height = 300
@@ -63,6 +64,9 @@ def model_from_scratch(input_shape):
                   metrics=['accuracy', Precision(), Recall()])
     return model
 
+log_dir = "logs/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir=log_dir, histogram_freq=1)
+
 # Format input
 if K.image_data_format() == 'channels_first':
     input_shape = (3, img_width, img_height)
@@ -99,7 +103,8 @@ model.fit(
     steps_per_epoch=nb_train_samples // batch_size,
     epochs=epochs,
     validation_data=validation_generator,
-    validation_steps=nb_validation_samples // batch_size)
+    validation_steps=nb_validation_samples // batch_size,
+    callbacks=[tensorboard_callback])
 
 model_name = "image_classifier_{}.h5".format(now)
 model.save(model_name)
