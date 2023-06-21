@@ -5,4 +5,5 @@ services:
     build: ./
     command: gunicorn --bind 0.0.0.0:5000 main:app
     ports:
-      - 5001:5000
+      - 80:80
+    restart: always
