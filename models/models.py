@@ -21,7 +21,7 @@ class IsPotatoModel:
         if result[0][0] >= 0.5:
             return {"class": "is potato", "probability": result[0][0]}
         elif 0.25 < result[0][0] < 0.5:
-            return {"class": "is maaaaaybe potato", "probability": result[0][0]}
+            return {"class": "is maybe potato", "probability": result[0][0]}
         else:
             return {"class": "is not potato", "probability": 1.0 - result[0][0]}
 

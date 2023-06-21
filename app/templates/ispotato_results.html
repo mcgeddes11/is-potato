@@ -4,11 +4,14 @@
 <div class="container mt-5">
     <p>Your image...</p>
     {% if ispotato == 'is potato' %}
-    <p>IS POTATO!</p>
-    <p>Confidence: {{ confidence }}</p>
-{% else %}
-    <p>is not potato...</p>
-    <p>Confidence: {{ confidence }}</p>
+        <p>IS POTATO!</p>
+        <p>Confidence: {{ confidence }}</p>
+    {% elif ispotato == 'is maybe potato' %}
+        <p>is maaaaybe potato...</p>
+        <p>Confidence: {{ confidence }}</p>
+    {% else %}
+        <p>is not potato...</p>
+        <p>Confidence: {{ confidence }}</p>
 {% endif %}
     <div id="image-results-div">
         <img src="{{ url_for('static', filename='potatoes/' + image_id + '.jpg') }}" style="max-height:100%; max-width:100%;">
