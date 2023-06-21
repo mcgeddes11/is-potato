@@ -10,15 +10,17 @@
 #     -not_potato
 
 from keras.preprocessing.image import ImageDataGenerator
+from keras.metrics import Precision, Recall
 from keras.models import Sequential
 from keras.layers import Conv2D, MaxPooling2D
 from keras.layers import Activation, Dropout, Flatten, Dense
 from keras import backend as K
 import os
 from datetime import datetime
+now = datetime.utcnow().strftime("%Y%m%d%H%M%S")
 
-img_width = 150
-img_height = 150
+img_width = 300
+img_height = 300
 
 # Format input
 if K.image_data_format() == 'channels_first':
@@ -58,7 +60,7 @@ def model_from_scratch(input_shape):
 
     model.compile(loss='binary_crossentropy',
                   optimizer='rmsprop',
-                  metrics=['accuracy'])
+                  metrics=['accuracy', Precision(), Recall()])
     return model
 
 # Format input
@@ -99,4 +101,5 @@ model.fit(
     validation_data=validation_generator,
     validation_steps=nb_validation_samples // batch_size)
 
-model.save("classifier_model.h5")
+model_name = "image_classifier_{}.h5".format(now)
+model.save(model_name)

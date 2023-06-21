@@ -1,0 +1,1 @@
+docker run -d --name ispotato -p 80:80 ispotato

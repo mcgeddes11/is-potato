@@ -1,4 +1,4 @@
-from app.models import IsPotatoModel
+from models.models import IsPotatoModel
 from PIL import Image
 model = IsPotatoModel("classifier_model.h5", img_height=150, img_width=150)
 image1 = Image.open("C:\\Projects\\code\\is-potato\\app\\static\\potatoes\\test.jpg")

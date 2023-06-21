@@ -1,13 +1,13 @@
 name: ispotato
 dependencies:
   - python=3.10
-  - keras
-  - tensorflow
   - Flask
-  - tensorboard
-  - Pillow
-  - pip
+  - keras
   - nomkl
   - pandas
+  - pip
+  - Pillow
+  - tensorboard
+  - tensorflow
   - pip:
       - bing-image-downloader
