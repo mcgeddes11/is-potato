@@ -160,4 +160,5 @@ cython_debug/
 #.idea/
 app/static/potatoes/
 !app/static/potatoes/dutton.jpg
+
 logs/
