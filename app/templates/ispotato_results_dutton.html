@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <p>This motherfucker is the most potato to ever have potatoed</p>
+
+    <div id="image-results-div">
+        <img src="{{ url_for('static', filename='potatoes/' + image_id + '.jpg') }}" style="max-height:100%; max-width:100%;">
+    </div>
+</div>
+{% endblock %}

@@ -64,8 +64,11 @@ def process_input():
 
 @app.route('/results/<image_id>')
 def ispotato_results(image_id):
-    result = results_object[image_id]
-    return render_template('ispotato_results.html', image_id=image_id, ispotato=result["class"], confidence=result["probability"])
+    if image_id == 'dutton':
+        return render_template('ispotato_results_dutton.html', image_id=image_id)
+    else:
+        result = results_object[image_id]
+        return render_template('ispotato_results.html', image_id=image_id, ispotato=result["class"], confidence=result["probability"])
 
 
 @app.errorhandler(500)

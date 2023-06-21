@@ -7,12 +7,12 @@
         <p>IS POTATO!</p>
         <p>Confidence: {{ confidence }}</p>
     {% elif ispotato == 'is maybe potato' %}
-        <p>is maaaaybe potato...</p>
+        <p>IS POTATO!</p>
         <p>Confidence: {{ confidence }}</p>
     {% else %}
         <p>is not potato...</p>
         <p>Confidence: {{ confidence }}</p>
-{% endif %}
+    {% endif %}
     <div id="image-results-div">
         <img src="{{ url_for('static', filename='potatoes/' + image_id + '.jpg') }}" style="max-height:100%; max-width:100%;">
     </div>
