@@ -1,1 +1,1 @@
-docker build -t ispotato .
+docker-compose build
